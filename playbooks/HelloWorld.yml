@@ -1,0 +1,10 @@
+---
+- name: testing
+  hosts: localhost
+  tasks:
+  - name: copying test file to desktop
+    copy: 
+        content: "Hello World\n" 
+        dest: ~/Desktop/test.txt
+
+...

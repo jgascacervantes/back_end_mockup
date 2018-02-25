@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Launch an instance:</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function pressButton(name) {
+            if(name == "nova"){
+                $.get("http://localhost:3000/launch/");
+            }else if(name == "heat"){
+                $.get("http://localhost:3000/launch/withHeat/");
+            }
+        };
+
+    </script>
+</head>
+<body>
+<button type="button" onclick=pressButton("nova")>Nova</button>
+<button type="button" onclick=pressButton("heat")> Heat</button>
+</body>
+</html>
