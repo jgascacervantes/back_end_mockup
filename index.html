@@ -7,9 +7,9 @@
     <script>
         function pressButton(name) {
             if(name == "nova"){
-                $.get("http://localhost:3000/launch/");
-            }else if(name == "heat"){
-                $.get("http://localhost:3000/launch/withHeat/");
+                $.get("http://localhost:4000/launch/");
+            }else if(name == "delete"){
+                $.get("http://localhost:4000/teardown/");
             }
         };
 
@@ -17,6 +17,6 @@
 </head>
 <body>
 <button type="button" onclick=pressButton("nova")>Nova</button>
-<button type="button" onclick=pressButton("heat")> Heat</button>
+<button type="button" onclick=pressButton("delete")> Delete</button>
 </body>
 </html>

@@ -7,7 +7,7 @@ module.exports = function (app) {
 
     app.route('/launch/')
         .get(handlers.createNovaInstance);
-    app.route('/launch/withHeat/')
-        .get(handlers.callHeat);
+    app.route('/teardown/')
+        .get(handlers.tearDown);
 
 };
