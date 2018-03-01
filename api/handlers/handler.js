@@ -7,7 +7,7 @@ exports.createNovaInstance = function(req,res){
     //send POST request to create NOVA
     getAuthToken();
 
-    //TODO CHANGE TO CONFIGURATION PLAYBOOK
+    //TODO CHANGE TO CONFIGURATION PLAYBOOK, intall something on new VM
     var ansibleProcess = spawn('ansible-playbook',["../playbooks/HelloWorld.yml"]);
 
     //on success listener
@@ -78,12 +78,12 @@ function getAuthToken(){
 function callNovaAPI(authtoken){
     request.post(
         'http://192.168.56.101/compute/v2.1/servers',
-        {headers:{"X-Auth-Token":authtoken},
+        {headers:{"X-Auth-Token":authtoken, "X-OpenStack-Nova-API-Version":"2.37"},
             json:{"server": {
                     "name": "test-server",
                     "imageRef": "70a599e0-31e7-49b7-b260-868f441e862b",
                     "flavorRef": "http://openstack.example.com/flavors/1",
-                    "networks": "auto"//TODO FIND SETTINGS FOR NETWORK
+                    "networks": "auto"
                 }}},
         function (error, response, body) {
             console.log(authtoken);

@@ -2,7 +2,9 @@ var express = require('express'),
     app = express(),
     port = process.env.PORT || 4000,
     http = require('http'),
-    fs = require('fs');
+    fs = require('fs'),
+    swaggerUi = require('swagger-ui-express'),
+    swaggerDoc = require('./swagger.json');
 
 //return simple homepage for buttons
 fs.readFile('./index.html', function (err, html) {
@@ -21,5 +23,7 @@ fs.readFile('./index.html', function (err, html) {
 var routes = require('./api/routes/routes');
 routes(app); //register the route
 console.log("API READY ON PORT: " + port);
-
 app.listen(port);
+
+//Swagger UI on /v2
+app.use('/v2', swaggerUi.serve, swaggerUi.setup(swaggerDoc));

@@ -1,0 +1,57 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a prototype server for launching and configuring an Openstack Nova instance remotely",
+    "version": "1.0.0",
+    "title": "NovaLauncher"
+  },
+  "host": "localhost",
+  "basePath": "/v2",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/launch": {
+      "get": {
+        "tags": [
+          "launch"
+        ],
+        "summary": "Initiate and configure Nova Instance ",
+        "description": "",
+        "operationId": "addInstance",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/teardown": {
+      "get": {
+        "tags": [
+          "teardown"
+        ],
+        "summary": "Delete Nova Instance ",
+        "description": "",
+        "operationId": "removeInstance",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        }
+      }
+    }
+  }
+}
